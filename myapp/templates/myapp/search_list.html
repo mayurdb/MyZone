@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Child account </title>
+</head>
+<body>
+	
+<form action="/myapp/home/" method = "post">   
+		<input type="submit"  value="Home" name="Submit"/></p>
+		<br>
+</form>
+-----------------------------------------------------
+	<h2>Friends :</h2>
+	<ol>
+
+	{% for user in result1 %}
+	<form action="/myapp/{{ user.id }}/home/" method = "post">
+		<p>{{ user.first_name }} {{ user.last_name }}  </p>
+		<br>
+	</form>
+	{% endfor %}
+	</ol>
+------------------------------------------------------
+	<h2>Friend Requests Pending(Received or Sent):</h2>
+	<ol>
+	{% for user in result3 %}
+	<form action="/myapp/{{ user.id }}/home/" method = "post">
+		<p>{{ user.first_name }} {{ user.last_name }}  </p>
+		<br>
+	</form>
+	{% endfor %}
+	</ol>
+
+--------------------------------------------------------	
+	
+	<h2>Others :</h2>
+	<ol>
+	{% for user in result4 %}
+	<form action="/myapp/{{ user.id }}/home/" method = "post">
+		<p>{{ user.first_name }} {{ user.last_name }}   
+		<input type="submit"  value="Send Linking Request" name="{{ user.id }}"/></p>
+		<br>
+	</form>
+	{% endfor %}
+	</ol>
+
+
+</body>
+</html>

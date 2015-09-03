@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> registered </title>
+</head>
+<body>
+	<h1>You have successfully registered </h1>
+	<h2>QUICK CHILD PROFILE SETUP</h2>
+	<h3>Date of Birth should be entered in YYYY-MM-DD format</h3>
+	<form action = "/myapp/go_home/" method="post" enctype="multipart/form-data">
+	<table>
+	{{ cform.as_table}}		
+	</table>
+	{% csrf_token %}
+	<input type="submit" name="submit" value="Submit" /></form>
+	</form>
+	
+</body>
+</html>

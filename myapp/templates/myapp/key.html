@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+</head>
+<body >
+	
+</style>
+<h2>{{message}}</h2>
+<!-- {% if error %}<p><strong>{{ error }}</strong></p>{% endif %} -->
+	<div class="Key">
+	<h1>Please Enter Confirmation Key mailed to you </h1>
+	<!-- {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %} -->
+	<form action="/myapp/register/" method = "post">
+	Key:<input type="text" name="confirmation_key" value="{{ confirmation_key }}" />	
+	{%csrf_token%}
+	<input type="submit" name="submit" value="Submit"/>
+
+</body>
+</html

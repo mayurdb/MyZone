@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View Requests</title>
+</head>
+<body>
+	<form action="/myapp/home/" method = "post">   
+		<input type="submit"  value="Home" name="Submit"/></p>
+		<br>
+	</form>
+
+	<ol>
+	<h2> Friend List : </h2>
+
+	{% for f in user_profile.from_friend_set.all %}
+		<p> {{ f.to_friend.user.first_name }}  {{ f.to_friend.user.last_name }}</p>
+	{% endfor %}
+	{% for f in user_profile.to_friend_set.all %}
+		<p> {{ f.from_friend.user.first_name }}  {{ f.from_friend.user.last_name }}</p>
+	{% endfor %}
+	</ol>
+	
+
+
+</body>
+</html>

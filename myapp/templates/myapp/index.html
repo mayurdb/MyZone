@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<style>	
+		h1	{
+				color: black;
+			}
+		body{
+				background-color: #000;
+				background: #c1bdba none repeat scroll 0 0;
+				background-image: 'home/Desktop/happy-family-cartoon-illustra-vector-517269'	
+			}
+		.sign_up{
+    			background-color:#003366;
+    			background: rgba(19, 35, 47, 0.9);
+    			width: 400px;
+    			padding: 2px;
+    			border: 0px solid #fff;
+    			margin:10px 0px 20px 430px;
+    			border-radius: 10px;
+    			text-align: center;
+			}
+		.sign_in{
+				background-color: lightgrey;
+    			background: rgba(19, 35, 47, 0.9);
+    			width: 400px;
+    			padding: 2px;
+    			border-radius: 10px;
+    			border: 0px solid #fff;
+    			margin-left: 430px;
+    			text-align: center;
+		}
+
+		.btn_submit{
+			background-color: #1ab188;
+    		border: 1px solid navy;
+    		margin: 10px 0px 10px 0px;
+    		color: #000;
+    		height: 30px;
+    		width: 100px;
+    		border-radius: 5px;
+
+
+		}
+	</style>
+</head>
+<body >
+				
+			{% if error %}<p><strong>{{ error }}</strong></p>{% endif %}
+			{% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
+				<div class="sign_up" float="left">
+				<h1 style="color:white;">Sign up</h1>
+				<!-- {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %} -->
+				<form action="/myapp/key/" method="post">
+				<table style="color:white;">
+				{{ form1.as_table}}
+				</table>
+				{% csrf_token %}
+				<input class="btn_submit" type="submit" name="submit" value="Submit"/>
+				</form>
+				</div>
+			 
+				<div class="sign_in">
+				<h1 style="color:white;">Sign In</h1>
+				{% if error %}<p><strong>{{ error }}</strong></p>{% endif %}
+				<form action="/myapp/loggedin/" method="post">
+				<table style="color:white;">
+				{{ form2.as_table}}
+				</table>
+				{%csrf_token%}
+				<input class="btn_submit" type="submit" name="submit" value="Log in"  />
+				</form>
+				<br>	 
+
+			</body>
+			</html

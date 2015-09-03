@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Child account </title>
+	<style>
+		body{   
+			margin:0 auto; 
+			width: 950px;
+			height: 1000px;
+    		background:#F0F0F0;	
+			background: #c1bdba none repeat scroll 0 0;
+				} 	
+			.main_content{
+					background: red;
+					margin:0 auto; 
+					width: 950px auto;
+					height: 500px;
+	    			background: rgba(19, 35, 47, 0.9);
+
+			}	
+
+
+			.IMG_cont{
+				width:950px;
+				margin:0px 0px 0px 0px;
+				float:left;
+			}
+
+			.name_child{
+				color: white;
+				float: left;
+				width: 200px;
+			}
+	</style>
+</head>
+
+<body>
+<div class="main_content">
+	
+	{% if message %}
+	
+	<h4>{{message}}</h4>
+	
+	{%endif%}
+
+	<div class="IMG_Cont">
+
+		{% for attr in user_profile.child_set.all %}
+			<div style = "float:left; margin: 10px 0px 10px 20px; ">
+				
+				<p style="color:white">{{ attr.name }}</p>
+				<img src="{{ MEDIA_URL }}{{attr.image}}" height="100px" width="100px" >
+ 				<form action = "/myapp/{{attr.id}}/update/" method="post" enctype="		  multipart/form-data">
+			
+					{% csrf_token %}
+
+					<input style = "margin: 10px 0px 10px 0px" type="submit" name="Update Profile" value="Update Profile" />
+						
+				</form>
+			</div>				
+		{% endfor %}
+				
+	</div>	
+			
+	<br>
+			
+	</br>
+							
+						
+	
+	<div style = "float:left; width:950px;">
+
+		<form action="/myapp/register/" method="get">
+			{% csrf_token %}
+			<input type="submit"  value="Add Child" name="Submit"/>
+		</form>
+	</div>
+
+	 <br>
+
+	 </br>
+
+	 <div style = "float:left">
+			<form action="/myapp/search_results/" method="post">
+				Search Parents:<input type="text" name="Parents"  />
+				{% csrf_token %}
+				<input type="submit"  value="Submit" name="Submit"/>
+			</form>
+	 </div>
+
+<br>
+
+<form action="/myapp/view_requests/" method="post">
+{% csrf_token %}
+<input type="submit"  value="View Friend Requests" name="Submit"/>
+</form>
+
+<br>
+
+<form action="/myapp/friend_list/" method = "post">
+{% csrf_token %}
+<input type="submit" value="View Friends" name="Submit">
+</form>
+
+<div style="width:100%; float:left;">
+<div style="width:10%; float:left;"><h3>Log Out</h3></div>
+<div style="width:49%; float:left; margin: 15px 0px 0px 0px;"><form action="/myapp/loggedout/" method="post">
+<input type="submit" name="loggedout" value="Log Out" />
+</form></div>
+</div>
+</div>
+</body>
+</html>
+				
+		
+ 			<p>{{ attr.name }}</p>
+			<div class="name_child">	<img src="{{MEDIA_URL}}{{attr.image}}" height="150px" width="150px" ></div>
